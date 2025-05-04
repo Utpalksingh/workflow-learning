@@ -8,7 +8,8 @@ on:
             - bugfix/* # for bugfix branches
         paths-ignore:
             - .github/workflows/deploy.yml # ignore changes to this file
-            - README.md # ignore changes to this file    
+            - README.md # ignore changes to this file   
+    workflow_dispatch: # allow manual trigger of the workflow         
 jobs:
     test:
         runs-on: ubuntu-latest
