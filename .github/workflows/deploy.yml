@@ -49,12 +49,7 @@ jobs:
               uses: actions/upload-artifact@v2
               with:
                   name: build-artifacts
-                  path: |
-                      build # path to the build folder
-                      dist # path to the dist folder
-                      coverage # path to the coverage folder
-                      test-results # path to the test-results folder
-
+                  path: dist
     deploy:
         runs-on: ubuntu-latest
         needs: build
@@ -63,11 +58,8 @@ jobs:
               uses: actions/download-artifact@v2
               with:
                   name: build-artifacts
-                  path: |
-                      build # path to the build folder
-                      dist # path to the dist folder
-                      coverage # path to the coverage folder
-                      test-results # path to the test-results folder
+                  path: dist
+        
             - name: deploy to production server
               run: echo "Deploying to production server..."  
                       
