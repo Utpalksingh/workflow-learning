@@ -1,7 +1,7 @@
-name: deploy workflow nodejs
+name: deploy
 on: [push, workflow_dispatch]
 jobs:
-    deploy nodejs:
+    deploy:
         runs-on: ubuntu-latest
         steps: 
             - name: code checkout
@@ -9,12 +9,12 @@ jobs:
             - name: node version cheekout
               uses: actions/setup-node@v2
               with:
-                  node-version: '20' # use the latest version of nodejs 20.x
+                  node-version: 20 # use the latest version of nodejs 20.x
             - name: print node version
               run: node -v 
 
             - name: install dependencies
-              run: npm install
+              run: npm ci
 
             - name: run tests
-              run: npm test
+              run: npm run test
