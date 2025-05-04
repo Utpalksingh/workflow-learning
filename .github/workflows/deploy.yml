@@ -46,7 +46,7 @@ jobs:
             - name: build project
               run: npm run build  
             - name: upload build artifacts
-              uses: actions/upload-artifact@v2
+              uses: actions/upload-artifact@v3
               with:
                   name: build-artifacts
                   path: dist
@@ -55,7 +55,7 @@ jobs:
         needs: build
         steps:
             - name: download build artifacts
-              uses: actions/download-artifact@v2
+              uses: actions/download-artifact@v3
               with:
                   name: build-artifacts
                   path: dist
